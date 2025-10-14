@@ -19,7 +19,7 @@ spec:
       helm:
         valueFiles:
         - {{ printf "$values/clusters/%s/utilities/values/grafana-values.yaml" .Values.spec.cluster | quote }}
-    - repoURL: 'https://nc-nl-internships@dev.azure.com/nc-nl-internships/NCNL-ArchitectureBoard/_git/DependencyTrack-GitOps'
+    - repoURL: 'https://github.com/daseth/gitops.git'
       targetRevision: main
       ref: values
   syncPolicy:
