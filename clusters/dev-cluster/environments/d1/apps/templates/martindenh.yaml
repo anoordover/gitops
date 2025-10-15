@@ -11,8 +11,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'oci://registry-1.docker.io/martindenh/azure-vote-app'
+    - repoURL: 'registry-1.docker.io/martindenh'
       targetRevision:  {{ .Values.spec.martindenh.helmchartVersion }}
+      chart: azure-vote-app
       helm:
         valueFiles:
         - {{ printf "$values/clusters/%s/utilities/values/martindenh-values.yaml" .Values.spec.cluster | quote }}
