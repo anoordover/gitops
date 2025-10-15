@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: azure-vote-front
+  name: azure-vote-front3
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io

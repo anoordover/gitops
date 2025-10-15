@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: azure-vote-app
+  name: azure-vote-app1
   namespace: shortcheese
   finalizers:
   - resources-finalizer.argocd.argoproj.io
