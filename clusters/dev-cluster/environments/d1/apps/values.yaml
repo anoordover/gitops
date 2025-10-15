@@ -2,5 +2,6 @@ spec:
   cluster: dev-cluster
   destination:
     server: https://kubernetes.default.svc
-#  environment: "d1"
-  environment: "fredhendriks"
+  environment: "d1"
+  fredhendriks:
+    helmchartVersion: 0.1.0
