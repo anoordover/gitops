@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'hub.docker.com/repositories/oerkelens'
+    - repoURL: 'registry-1.docker.io/oerkelens'
       targetRevision:  {{ .Values.spec.oerkelens-voting-app.helmchartVersion }}
       chart: azure-vote-app
       helm:
