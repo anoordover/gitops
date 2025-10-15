@@ -1,0 +1,5 @@
+﻿spec:
+  cluster: dev-cluster
+  destination:
+    server: https://kubernetes.default.svc
+  environment: "d1"
