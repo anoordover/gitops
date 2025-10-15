@@ -2,7 +2,7 @@ spec:
   cluster: dev-cluster
   destination:
     server: https://kubernetes.default.svc
-  environment: "msahin025"
+  environment: "d1"
   oerkelensVotingApp:
     helmchartVersion: 0.1.0
   frontend:
@@ -14,4 +14,6 @@ spec:
   ljdebrabander: 
     helmchartVersion: 0.1.0
   msahin025:
+    helmchartVersion: 0.1.0
+  fredhendriks:
     helmchartVersion: 0.1.0
