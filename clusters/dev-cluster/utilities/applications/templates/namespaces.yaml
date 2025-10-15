@@ -10,7 +10,7 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: monitoring
+  name: martindenh
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 

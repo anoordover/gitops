@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: azure-vote-front
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: martindenh
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  sources:
+    - repoURL: 'oci://registry-1.docker.io/martindenh/azure-vote-app'
+      targetRevision:  {{ .Values.spec.martindenh.helmchartVersion }}
+      helm:
+        valueFiles:
+        - {{ printf "$values/clusters/%s/utilities/values/martindenh-values.yaml" .Values.spec.cluster | quote }}
+    - repoURL: 'https://github.com/daseth/gitops.git'
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+
