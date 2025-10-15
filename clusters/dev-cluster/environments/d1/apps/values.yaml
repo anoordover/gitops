@@ -3,11 +3,11 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   environment: "d1"
-  ljdebrabander:
-    helmchartVersion: 0.1.0
-  oerkelens-voting-app:
+  oerkelensVotingApp:
     helmchartVersion: 0.1.0
   frontend:
     helmchartVersion: 0.1.0
   martindenh:
+    helmchartVersion: 0.1.0
+  ljdebrabander: 
     helmchartVersion: 0.1.0

@@ -14,7 +14,7 @@ spec:
   project: default
   sources:
     - repoURL: 'registry-1.docker.io/oerkelens'
-      targetRevision:  {{ .Values.spec.oerkelens-voting-app.helmchartVersion }}
+      targetRevision:  {{ .Values.spec.oerkelensVotingApp.helmchartVersion }}
       chart: azure-vote-app
       helm:
         valueFiles:
