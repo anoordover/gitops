@@ -3,5 +3,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   environment: "d1"
+  oerkelens-voting-app:
+    helmchartVersion: 0.1.0
   frontend:
     helmchartVersion: 0.1.0
