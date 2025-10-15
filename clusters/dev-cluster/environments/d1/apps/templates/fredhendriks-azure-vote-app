@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: monitoring
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  sources:
+    - repoURL: 'hub.docker.com/repositories/fredhendriks'
+      targetRevision:  {{ .Values.spec.fredhendriks-azure-vote-app.helmVersion }}
+      chart: azure-vote-app
+      helm:
+        valueFiles:
+        - {{ printf "$values/clusters/%s/environments/d1/apps/values/fredhendriks-azure-vote-apps.yaml" .Values.spec.cluster | quote }}
+    - repoURL: 'https://github.com/daseth/gitops.git'
+      targetRevision: main
+      ref: values
+syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
