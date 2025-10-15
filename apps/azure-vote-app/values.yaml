@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion. 
+  tag: "msahin025/azure-vote-front:v1"  # Use your own image tag
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: false
+  hosts: []
+  tls: false
+
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs: []
+  hostnames: []
+  rules: []
