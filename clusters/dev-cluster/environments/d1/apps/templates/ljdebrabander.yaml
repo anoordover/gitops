@@ -11,12 +11,12 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'oci://registry-1.docker.io/ljdebrabander/azure-vote-app'
+    - repoURL: 'https://hub.docker.com/r/ljdebrabander'
       targetRevision:  {{ .Values.spec.ljdebrabander.helmchartVersion }}
       chart: azure-vote-app
       helm:
         valueFiles:
-        - {{ printf "$values/clusters/%s/utilities/values/ljdebrabander-values.yaml" .Values.spec.cluster | quote }}
+        - {{ printf "$values/clusters/%s/environments/d1/values/ljdebrabander-values.yaml" .Values.spec.cluster | quote }}
     - repoURL: 'https://github.com/daseth/gitops.git'
       targetRevision: main
       ref: values
