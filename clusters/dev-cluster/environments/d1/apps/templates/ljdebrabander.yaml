@@ -11,7 +11,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'https://hub.docker.com/r/ljdebrabander'
+    - repoURL: 'oci://registry-1.docker.io/ljdebrabander/azure-vote-app'
       targetRevision:  {{ .Values.spec.ljdebrabander.helmchartVersion }}
       chart: azure-vote-app
       helm:
