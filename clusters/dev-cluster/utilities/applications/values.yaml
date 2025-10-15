@@ -8,4 +8,3 @@ spec:
     helmchartVersion: 10.0.0
   sealedSecrets:
     helmchartVersion: 2.17.7
-
