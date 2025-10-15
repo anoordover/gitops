@@ -11,7 +11,7 @@ spec:
     server: {{ .values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'hub.docker.com/repositories/fredhendriks'
+    - repoURL: 'registry-1.docker.io/fredhendriks'
       targetRevision:  {{ .values.spec.fredhendriks.helmVersion }}
       chart: azure-vote-app
       helm:
