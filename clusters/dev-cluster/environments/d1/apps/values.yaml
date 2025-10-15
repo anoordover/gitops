@@ -7,6 +7,8 @@ spec:
     helmchartVersion: 0.1.0
   frontend:
     helmchartVersion: 0.1.0
+  Shortcheese:
+    helmchartVersion: 0.1.0
   martindenh:
     helmchartVersion: 0.1.0
   ljdebrabander: 
