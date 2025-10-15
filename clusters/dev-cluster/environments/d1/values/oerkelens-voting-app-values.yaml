@@ -1,1 +1,14 @@
-
+# global:
+#   imageRegistry: 
+persistence:
+  enabled: "true"
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-server.prometheus:80
+        isDefault: true
+# admin:
+#   existingSecret: "grafana-password"
