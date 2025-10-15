@@ -1,18 +1,18 @@
-apiVersion: argoproj.io/v1alpha1
+-apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: azure-vote-front
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: monitoring
+    namespace: fredhendriks
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
     - repoURL: 'hub.docker.com/repositories/fredhendriks'
-      targetRevision:  {{ .Values.spec.fredhendriks-azure-vote-app.helmVersion }}
+      targetRevision:  {{ .Values.spec.fredhendriks.helmVersion }}
       chart: azure-vote-app
       helm:
         valueFiles:
