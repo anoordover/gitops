@@ -8,11 +8,11 @@ metadata:
 spec:
   destination:
     namespace: fredhendriks
-    server: {{ .Values.spec.destination.server }}
+    server: {{ .values.spec.destination.server }}
   project: default
   sources:
     - repoURL: 'hub.docker.com/repositories/fredhendriks'
-      targetRevision:  {{ .Values.spec.fredhendriks.helmVersion }}
+      targetRevision:  {{ .values.spec.fredhendriks.helmVersion }}
       chart: azure-vote-app
       helm:
         valueFiles:
