@@ -4,7 +4,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: frontend
-  namespace: anoordover
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,11 +14,11 @@ spec:
   project: default
   sources:
     - repoURL: 'https://hub.docker.com/r/anoordover'
-      targetRevision:  0.1.0
+      targetRevision:  {{ .Values.spec.frontend.helmchartVersion }}
       chart: azure-vote-app
       helm:
         valueFiles:
-        - {{ printf "$values/clusters/%s/environments/d1/apps/anoordover-values.yaml" .Values.spec.cluster | quote }}
+        - {{ printf "$values/clusters/%s/environments/d1/values/anoordover-values.yaml" .Values.spec.cluster | quote }}
     - repoURL: 'https://github.com/daseth/gitops.git'
       targetRevision: main
       ref: values
