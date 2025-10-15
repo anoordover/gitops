@@ -13,7 +13,7 @@ spec:
     path: apps/azure-vote-app
     helm:
       valueFiles:
-        - ../../clusters/dev-cluster/environments/{{ .Values.spec.environment }}/values/azure-vote-values.yaml
+        - ../../clusters/dev-cluster/environments/{{ .Values.spec.environment }}/values/my-app-values.yaml
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: {{ .Values.spec.environment }}
