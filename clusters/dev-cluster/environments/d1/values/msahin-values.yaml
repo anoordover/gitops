@@ -1,0 +1,55 @@
+# Azure Vote App Custom Values for msahin025 environment
+replicaCount: 3
+
+image:
+  repository: msahin025/azure-vote-front
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: false
+  hosts: []
+  tls: false
+
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs: []
+  hostnames: []
+  rules: []
+
+# Redis backend configuration (will be deployed separately or as dependency)
+redis:
+  enabled: true
+  image: "mcr.microsoft.com/oss/bitnami/redis:6.0.8"
+  service:
+    port: 6379
+
+# Resource limits
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Node selector for Linux nodes
+nodeSelector:
+  "kubernetes.io/os": linux
+
+# Environment variables
+env:
+  - name: REDIS
+    value: "azure-vote-back"
+
+# Horizontal Pod Autoscaler
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
