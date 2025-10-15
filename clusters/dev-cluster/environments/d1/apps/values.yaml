@@ -3,3 +3,15 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   environment: "msahin025"
+  oerkelensVotingApp:
+    helmchartVersion: 0.1.0
+  frontend:
+    helmchartVersion: 0.1.0
+  Shortcheese:
+    helmchartVersion: 0.1.0
+  martindenh:
+    helmchartVersion: 0.1.0
+  ljdebrabander: 
+    helmchartVersion: 0.1.0
+  msahin025:
+    helmchartVersion: 0.1.0
