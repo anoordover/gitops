@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ljdebrabander
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: ljdebrabander
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  sources:
+    - repoURL: 'registry-1.docker.io/ljdebrabander'
+      targetRevision:  {{ .Values.spec.ljdebrabander.helmchartVersion }}
+      chart: azure-vote-app
+      helm:
+        valueFiles:
+        - {{ printf "$values/clusters/%s/environments/d1/values/ljdebrabander-values.yaml" .Values.spec.cluster | quote }}
+    - repoURL: 'https://github.com/daseth/gitops.git'
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+

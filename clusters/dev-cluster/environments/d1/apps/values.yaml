@@ -9,3 +9,5 @@ spec:
     helmchartVersion: 0.1.0
   martindenh:
     helmchartVersion: 0.1.0
+  ljdebrabander: 
+    helmchartVersion: 0.1.0
