@@ -12,7 +12,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-    - repoURL: 'oci://registry-1.docker.io/shortcheese/azure-vote-app'
+    - repoURL: 'registry-1.docker.io/shortcheese/azure-vote-app'
       targetRevision:  {{ .Values.spec.grafana.helmchartVersion }}
       chart: azure-vote-app
       helm:
